@@ -1,30 +1,59 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages
 import Index from "./pages/Index";
-import EventDetails from "./pages/EventDetails";
+import EventPage from "./pages/EventPage";
+import CreateEvent from "./pages/CreateEvent";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+// Add JavaScript for scroll animations
+const initScrollAnimations = () => {
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/event/:id" element={<EventDetails />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    const scrollElements = document.querySelectorAll('.scroll-reveal');
+    scrollElements.forEach(el => {
+      observer.observe(el);
+    });
+  });
+};
+
+function App() {
+  // Initialize animations
+  React.useEffect(() => {
+    initScrollAnimations();
+    
+    // Also add event listeners for staggered animations
+    const staggerItems = document.querySelectorAll('.staggered-item');
+    staggerItems.forEach((item, index) => {
+      item.style.animationDelay = `${0.1 * index}s`;
+    });
+  }, []);
+  
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/event/:id" element={<EventPage />} />
+        <Route path="/create-event" element={<CreateEvent />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;
