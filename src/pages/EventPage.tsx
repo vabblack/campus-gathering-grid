@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, MapPin, Clock, DollarSign, Users, Share2, Star, ArrowLeft } from 'lucide-react';
@@ -21,7 +20,8 @@ const EventPage = () => {
     setLoading(true);
     setTimeout(() => {
       if (id) {
-        const foundEvent = events.find(e => e.id === parseInt(id));
+        // Fix: Convert the string id to number before comparison
+        const foundEvent = events.find(e => e.id === id);
         setEvent(foundEvent || null);
         
         // Find related events (same category)

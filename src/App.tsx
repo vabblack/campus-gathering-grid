@@ -39,7 +39,9 @@ function App() {
     // Also add event listeners for staggered animations
     const staggerItems = document.querySelectorAll('.staggered-item');
     staggerItems.forEach((item, index) => {
-      item.style.animationDelay = `${0.1 * index}s`;
+      // Fix: Cast the item to HTMLElement to access style property
+      const htmlItem = item as HTMLElement;
+      htmlItem.style.animationDelay = `${0.1 * index}s`;
     });
   }, []);
   
