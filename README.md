@@ -1,69 +1,67 @@
-# Welcome to your Lovable project
 
-## Project info
+# Campus Gathering Grid
 
-**URL**: https://lovable.dev/projects/6b83dab5-fbe2-4b23-a469-f4b588db00a3
+A web application for university events management, built with HTML, CSS (Tailwind), JavaScript, and PHP.
 
-## How can I edit this code?
+## Project Description
 
-There are several ways of editing your application.
+Campus Gathering Grid is a platform designed to connect students with campus events. It allows users to browse events, filter by category, view event details, and register for events.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6b83dab5-fbe2-4b23-a469-f4b588db00a3) and start prompting.
+- Responsive design for all screen sizes
+- Home page with featured events
+- Event filtering by category
+- Detailed event pages
+- Event registration system
+- Mobile-friendly navigation
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technologies Used
 
-**Use your preferred IDE**
+- HTML5
+- CSS3 with Tailwind CSS
+- Vanilla JavaScript
+- PHP
+- No frameworks or libraries
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+campus-gathering-grid/
+├── index.html             # Home page
+├── event-details.php      # Event details page
+├── register.php           # Registration handler
+├── css/
+│   └── styles.css         # Custom CSS styles
+├── js/
+│   └── main.js            # JavaScript functionality
+└── images/                # Image assets
+    ├── logo.svg
+    ├── campus-hero.jpg
+    ├── event-placeholder.jpg
+    └── events/            # Event images
 ```
 
-**Edit a file directly in GitHub**
+## Setup Instructions
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Clone this repository to your local machine or download the ZIP file
+2. Place the files in your web server directory (e.g., htdocs, www, or public_html)
+3. Ensure PHP is installed and configured on your web server
+4. Access the site through your web server (e.g., http://localhost/campus-gathering-grid)
 
-**Use GitHub Codespaces**
+## Future Improvements
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Database integration for dynamic event data
+- User authentication system
+- Admin panel for managing events
+- Event search functionality
+- Comments and ratings for events
+- Social media sharing
 
-## What technologies are used for this project?
+## Author
 
-This project is built with .
+[Your Name]
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/6b83dab5-fbe2-4b23-a469-f4b588db00a3) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This project is created for educational purposes as a university assignment.
