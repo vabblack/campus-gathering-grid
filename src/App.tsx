@@ -21,7 +21,7 @@ const initScrollAnimations = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
     const scrollElements = document.querySelectorAll('.scroll-reveal');
@@ -31,10 +31,31 @@ const initScrollAnimations = () => {
   });
 };
 
+// Mouse trail animation effect
+const initMouseTrail = () => {
+  document.addEventListener('mousemove', (e) => {
+    if (Math.random() > 0.92) { // Only create particles occasionally for performance
+      const particle = document.createElement('div');
+      particle.className = 'mouse-particle';
+      document.body.appendChild(particle);
+      
+      // Position the particle
+      particle.style.left = `${e.clientX}px`;
+      particle.style.top = `${e.clientY}px`;
+      
+      // Remove the particle after animation completes
+      setTimeout(() => {
+        particle.remove();
+      }, 1000);
+    }
+  });
+};
+
 function App() {
   // Initialize animations
   React.useEffect(() => {
     initScrollAnimations();
+    initMouseTrail();
     
     // Also add event listeners for staggered animations
     const staggerItems = document.querySelectorAll('.staggered-item');

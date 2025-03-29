@@ -17,31 +17,6 @@ const Index = () => {
     ? events
     : events.filter(event => event.category === selectedCategory);
 
-  useEffect(() => {
-    // Initialize scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const scrollElements = document.querySelectorAll('.scroll-reveal');
-    scrollElements.forEach(el => {
-      observer.observe(el);
-    });
-
-    return () => {
-      scrollElements.forEach(el => {
-        observer.unobserve(el);
-      });
-    };
-  }, []);
-
   const handleCategoryChange = (category: EventCategory) => {
     setSelectedCategory(category);
     // Smooth scroll to events grid after small delay
@@ -51,20 +26,54 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white">
       <Navbar />
       <Hero />
-      <FeaturedEvents events={events} />
       
-      <section className="py-12 gradient-bg-2">
+      {/* Featured Events Section with improved styling */}
+      <section className="py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-100/40 to-purple-100/40 -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 scroll-reveal">
-            <h2 className="text-3xl font-extrabold elegant-text-primary sm:text-4xl">
-              Browse Events
+          <div className="text-center mb-16 scroll-reveal">
+            <h2 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
+                Featured Events
+              </span>
             </h2>
-            <p className="mt-3 max-w-2xl mx-auto text-xl elegant-text-secondary sm:mt-4">
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+              Don't miss out on these popular campus events
+            </p>
+            <div className="mt-6 h-1 w-24 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {events.filter(event => event.featured).map((event, index) => (
+              <div 
+                key={event.id} 
+                className="scroll-reveal transform transition-all duration-300 hover:-translate-y-2"
+                style={{transitionDelay: `${index * 0.1}s`}}
+              >
+                <EventCard event={event} index={index} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Browse Events Section with improved styling */}
+      <section className="py-16 relative overflow-hidden" id="events-section">
+        <div className="absolute inset-0 bg-gradient-to-l from-pink-50/40 to-indigo-50/40 -z-10"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 scroll-reveal">
+            <h2 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-indigo-600">
+                Browse Events
+              </span>
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
               Discover what's happening across campus
             </p>
+            <div className="mt-6 h-1 w-24 bg-gradient-to-r from-pink-600 to-indigo-600 mx-auto rounded-full"></div>
           </div>
           
           <CategoryFilter 
@@ -72,17 +81,24 @@ const Index = () => {
             onCategoryChange={handleCategoryChange} 
           />
           
-          <div ref={eventsGridRef} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div 
+            ref={eventsGridRef} 
+            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mt-12"
+          >
             {filteredEvents.map((event, index) => (
-              <div key={event.id} className="scroll-reveal" style={{transitionDelay: `${index * 0.1}s`}}>
+              <div 
+                key={event.id} 
+                className="scroll-reveal transform transition-all duration-300 hover:-translate-y-2"
+                style={{transitionDelay: `${index * 0.1}s`}}
+              >
                 <EventCard key={event.id} event={event} index={index} />
               </div>
             ))}
           </div>
           
           {filteredEvents.length === 0 && (
-            <div className="text-center py-10 glass-card animate-fade-in">
-              <p className="elegant-text-secondary text-lg">
+            <div className="text-center py-20 glass-card animate-fade-in mt-8">
+              <p className="text-gray-600 text-xl">
                 No events found in this category. Please check back later or try another category.
               </p>
             </div>
@@ -90,24 +106,24 @@ const Index = () => {
         </div>
       </section>
       
-      <section className="py-16 gradient-bg-3">
+      {/* CTA Section with elegant glass effect */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 opacity-90 -z-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-card p-10 scroll-reveal">
-            <h2 className="text-3xl font-extrabold elegant-text-primary sm:text-4xl">
+          <div className="glass-card p-16 backdrop-blur-lg bg-white/20 border border-white/30 rounded-3xl shadow-xl scroll-reveal">
+            <h2 className="text-4xl font-bold text-white sm:text-5xl drop-shadow-md">
               Ready to create your own event?
             </h2>
-            <p className="mt-4 text-xl elegant-text-secondary">
+            <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto">
               Organize a campus event and reach thousands of students
             </p>
-            <div className="mt-8 flex justify-center">
-              <div className="inline-flex rounded-md shadow">
-                <a
-                  href="/create-event"
-                  className="glass-button inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white hover:scale-105 transition-all"
-                >
-                  Get Started
-                </a>
-              </div>
+            <div className="mt-10 flex justify-center">
+              <a
+                href="/create-event"
+                className="px-8 py-4 bg-white text-indigo-600 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+              >
+                Get Started
+              </a>
             </div>
           </div>
         </div>
