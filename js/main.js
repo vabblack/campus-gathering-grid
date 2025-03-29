@@ -1,212 +1,138 @@
 
-// Event data (normally this would come from a PHP backend)
+// Sample event data
 const events = [
   {
-    id: "1",
-    title: "Freshman Welcome Party",
-    description: "Welcome event for all new students with games, food, and networking opportunities.",
+    id: 1,
+    title: "Tech Startup Showcase",
+    description: "Network with innovative student startups and see their cutting-edge projects in action.",
     date: "2023-09-15",
-    time: "6:00 PM - 9:00 PM",
-    location: "Student Union Building",
-    organizer: "Student Council",
-    category: "Social",
-    image: "images/events/welcome-party.jpg",
-    ticketPrice: 0,
-    featured: true
+    time: "3:00 PM - 7:00 PM",
+    location: "Innovation Center, Main Campus",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Technology",
+    featured: true,
+    ticketPrice: 0
   },
   {
-    id: "2",
-    title: "AI & Machine Learning Workshop",
-    description: "Learn the basics of artificial intelligence and machine learning in this hands-on workshop.",
-    date: "2023-09-20",
-    time: "2:00 PM - 5:00 PM",
-    location: "Computer Science Building, Room 105",
-    organizer: "CS Department",
-    category: "Workshop",
-    image: "images/events/ai-workshop.jpg",
-    ticketPrice: 10,
-    featured: true
-  },
-  {
-    id: "3",
-    title: "Fall Campus Concert",
-    description: "Annual fall concert featuring student bands and special musical guests.",
-    date: "2023-10-05",
-    time: "7:00 PM - 11:00 PM",
-    location: "Campus Amphitheater",
-    organizer: "Student Activities Board",
-    category: "Concert",
-    image: "images/events/concert.jpg",
-    ticketPrice: 15,
-    featured: true
-  },
-  {
-    id: "4",
-    title: "Career Fair",
-    description: "Connect with employers from various industries looking to hire students and graduates.",
-    date: "2023-10-10",
-    time: "10:00 AM - 3:00 PM",
-    location: "Grand Hall",
-    organizer: "Career Services",
-    category: "Career",
-    image: "images/events/career-fair.jpg",
-    ticketPrice: 0,
-    featured: false
-  },
-  {
-    id: "5",
+    id: 2,
     title: "International Food Festival",
-    description: "Taste cuisine from around the world prepared by international student groups.",
-    date: "2023-10-15",
+    description: "Experience culinary delights from around the world prepared by student cultural organizations.",
+    date: "2023-09-20",
     time: "12:00 PM - 4:00 PM",
-    location: "Campus Quad",
-    organizer: "International Student Association",
+    location: "University Quad",
+    image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2087&q=80",
     category: "Cultural",
-    image: "images/events/food-festival.jpg",
-    ticketPrice: 5,
-    featured: false
+    featured: true,
+    ticketPrice: 5
   },
   {
-    id: "6",
-    title: "Hackathon 2023",
-    description: "24-hour coding competition with prizes for the most innovative projects.",
-    date: "2023-10-20",
-    time: "9:00 AM (24 hours)",
-    location: "Engineering Building",
-    organizer: "Tech Club",
+    id: 3,
+    title: "Fall Music Concert",
+    description: "Annual concert featuring performances from all university musical groups and special guest artists.",
+    date: "2023-10-05",
+    time: "7:30 PM - 10:00 PM",
+    location: "University Auditorium",
+    image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Arts",
+    featured: true,
+    ticketPrice: 10
+  },
+  {
+    id: 4,
+    title: "Research Symposium",
+    description: "Undergraduate and graduate students present their research findings across all disciplines.",
+    date: "2023-09-25",
+    time: "10:00 AM - 4:00 PM",
+    location: "Science Building",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     category: "Academic",
-    image: "images/events/hackathon.jpg",
-    ticketPrice: 0,
-    featured: false
+    featured: false,
+    ticketPrice: 0
   },
   {
-    id: "7",
-    title: "Basketball Tournament",
-    description: "Intramural basketball tournament open to all students and faculty.",
-    date: "2023-10-25",
-    time: "1:00 PM - 6:00 PM",
-    location: "Sports Complex",
-    organizer: "Campus Athletics",
+    id: 5,
+    title: "Volunteer Fair",
+    description: "Connect with local non-profits and community organizations to find volunteer opportunities.",
+    date: "2023-10-10",
+    time: "11:00 AM - 2:00 PM",
+    location: "Student Union",
+    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Community",
+    featured: false,
+    ticketPrice: 0
+  },
+  {
+    id: 6,
+    title: "Homecoming Game",
+    description: "Annual homecoming football game against our biggest rivals. Pre-game tailgate included!",
+    date: "2023-10-15",
+    time: "1:00 PM - 5:00 PM",
+    location: "University Stadium",
+    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     category: "Sports",
-    image: "images/events/basketball.jpg",
-    ticketPrice: 0,
-    featured: false
+    featured: true,
+    ticketPrice: 15
   },
   {
-    id: "8",
-    title: "Leadership Seminar",
-    description: "Develop your leadership skills with guidance from successful alumni and professionals.",
-    date: "2023-11-05",
-    time: "3:00 PM - 5:00 PM",
-    location: "Business School Auditorium",
-    organizer: "Leadership Council",
-    category: "Workshop",
-    image: "images/events/leadership.jpg",
-    ticketPrice: 5,
-    featured: false
+    id: 7,
+    title: "Career & Internship Fair",
+    description: "Meet with recruiters from top companies looking to hire students for jobs and internships.",
+    date: "2023-09-28",
+    time: "10:00 AM - 3:00 PM",
+    location: "Recreation Center",
+    image: "https://images.unsplash.com/photo-1560439514-4e9645039924?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    category: "Career",
+    featured: false,
+    ticketPrice: 0
   },
   {
-    id: "9",
-    title: "Art Exhibition",
-    description: "Showcase of student artwork from the Fine Arts department.",
-    date: "2023-11-10",
-    time: "11:00 AM - 7:00 PM",
-    location: "Campus Gallery",
-    organizer: "Fine Arts Department",
-    category: "Cultural",
-    image: "images/events/art-exhibition.jpg",
-    ticketPrice: 0,
-    featured: false
+    id: 8,
+    title: "Environmental Film Festival",
+    description: "Screening of documentaries focused on environmental issues followed by panel discussions.",
+    date: "2023-10-08",
+    time: "6:00 PM - 9:00 PM",
+    location: "Film Studies Building",
+    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80",
+    category: "Arts",
+    featured: false,
+    ticketPrice: 5
+  },
+  {
+    id: 9,
+    title: "Wellness Workshop",
+    description: "Learn stress management techniques, mindfulness practices, and healthy habits for student life.",
+    date: "2023-10-12",
+    time: "2:00 PM - 4:00 PM",
+    location: "Health Center",
+    image: "https://images.unsplash.com/photo-1598387181942-6ab202651504?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80",
+    category: "Wellness",
+    featured: false,
+    ticketPrice: 0
   }
 ];
 
-// Helper functions
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    weekday: 'long',
-    month: 'short',
-    day: 'numeric'
-  });
-}
+// Get unique categories from events data
+const categories = ['All', ...new Set(events.map(event => event.category))];
 
-function formatCurrency(amount) {
-  return amount === 0 
-    ? 'Free' 
-    : new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 0,
-      }).format(amount);
-}
-
-// Create event card HTML
-function createEventCard(event) {
-  return `
-    <div class="bg-white rounded-lg shadow-md overflow-hidden event-card">
-      <div class="relative">
-        <img 
-          src="${event.image}" 
-          alt="${event.title}" 
-          class="w-full h-48 object-cover"
-          onerror="this.src='images/event-placeholder.jpg'"
-        />
-        ${event.featured ? '<span class="badge badge-featured absolute top-4 right-4">Featured</span>' : ''}
-      </div>
-      <div class="p-5">
-        <div class="flex justify-between items-start mb-2">
-          <h3 class="text-xl font-bold text-gray-900 truncate">${event.title}</h3>
-        </div>
-        <p class="text-gray-600 text-sm mb-4 truncate-2">${event.description}</p>
-        <div class="space-y-2">
-          <div class="flex items-center text-gray-500 text-sm">
-            <svg class="h-4 w-4 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <span>${formatDate(event.date)}</span>
-          </div>
-          <div class="flex items-center text-gray-500 text-sm">
-            <svg class="h-4 w-4 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>${event.time}</span>
-          </div>
-          <div class="flex items-center text-gray-500 text-sm">
-            <svg class="h-4 w-4 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span class="truncate">${event.location}</span>
-          </div>
-          <div class="flex items-center text-gray-500 text-sm">
-            <svg class="h-4 w-4 mr-2 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>${formatCurrency(event.ticketPrice)}</span>
-          </div>
-        </div>
-        <div class="mt-4 flex justify-between items-center">
-          <span class="badge badge-category">
-            ${event.category}
-          </span>
-          <a href="event-details.php?id=${event.id}" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">
-            View Details →
-          </a>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-// Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
-  // Mobile menu toggle
+  // Toggle mobile menu
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
   
   if (mobileMenuButton && mobileMenu) {
     mobileMenuButton.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
+      const isVisible = mobileMenu.classList.contains('hidden');
+      
+      if (isVisible) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+      } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+      }
     });
   }
 
@@ -214,79 +140,118 @@ document.addEventListener('DOMContentLoaded', function() {
   const featuredEventsContainer = document.getElementById('featured-events');
   if (featuredEventsContainer) {
     const featuredEvents = events.filter(event => event.featured);
-    if (featuredEvents.length > 0) {
-      featuredEventsContainer.innerHTML = featuredEvents
-        .map(event => createEventCard(event))
-        .join('');
-    }
-  }
-
-  // Initialize category filters
-  const categoryFiltersContainer = document.getElementById('category-filters');
-  if (categoryFiltersContainer) {
-    // Extract unique categories
-    const categories = ['All', ...new Set(events.map(event => event.category))];
-    
-    // Create category buttons
-    categoryFiltersContainer.innerHTML = categories.map(category => `
-      <button
-        data-category="${category}"
-        class="category-filter px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-          category === 'All'
-            ? 'bg-indigo-600 text-white'
-            : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-        }"
-      >
-        ${category}
-      </button>
-    `).join('');
-    
-    // Add click event listeners to category buttons
-    const categoryButtons = document.querySelectorAll('.category-filter');
-    categoryButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        // Update active class
-        categoryButtons.forEach(btn => {
-          btn.classList.remove('bg-indigo-600', 'text-white');
-          btn.classList.add('bg-gray-100', 'text-gray-800', 'hover:bg-gray-200');
-        });
-        this.classList.remove('bg-gray-100', 'text-gray-800', 'hover:bg-gray-200');
-        this.classList.add('bg-indigo-600', 'text-white');
-        
-        // Filter events
-        const selectedCategory = this.getAttribute('data-category');
-        filterEvents(selectedCategory);
-      });
+    featuredEvents.forEach(event => {
+      featuredEventsContainer.appendChild(createEventCard(event));
     });
   }
-  
+
+  // Create category filters
+  const categoryFiltersContainer = document.getElementById('category-filters');
+  if (categoryFiltersContainer) {
+    categories.forEach(category => {
+      const button = document.createElement('button');
+      button.className = `px-4 py-2 text-sm font-medium rounded-full ${category === 'All' ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`;
+      button.textContent = category;
+      button.setAttribute('data-category', category);
+      button.addEventListener('click', filterEventsByCategory);
+      categoryFiltersContainer.appendChild(button);
+    });
+  }
+
   // Load all events initially
   loadEvents('All');
 });
 
-// Filter events by category
-function filterEvents(category) {
+function filterEventsByCategory(e) {
+  const category = e.target.getAttribute('data-category');
+  
+  // Update active filter button
+  document.querySelectorAll('#category-filters button').forEach(button => {
+    if (button.getAttribute('data-category') === category) {
+      button.className = 'px-4 py-2 text-sm font-medium rounded-full bg-indigo-600 text-white';
+    } else {
+      button.className = 'px-4 py-2 text-sm font-medium rounded-full bg-gray-100 text-gray-800 hover:bg-gray-200';
+    }
+  });
+  
   loadEvents(category);
 }
 
-// Load events into the events grid
 function loadEvents(category) {
   const eventsGrid = document.getElementById('events-grid');
   const noEventsMessage = document.getElementById('no-events');
   
   if (!eventsGrid) return;
   
-  const filteredEvents = category === 'All'
-    ? events
+  // Clear current events
+  eventsGrid.innerHTML = '';
+  
+  // Filter events by category
+  const filteredEvents = category === 'All' 
+    ? events 
     : events.filter(event => event.category === category);
   
+  // Show or hide "no events" message
   if (filteredEvents.length === 0) {
-    eventsGrid.innerHTML = '';
     noEventsMessage.classList.remove('hidden');
   } else {
-    eventsGrid.innerHTML = filteredEvents
-      .map(event => createEventCard(event))
-      .join('');
     noEventsMessage.classList.add('hidden');
+    
+    // Add events to grid
+    filteredEvents.forEach(event => {
+      eventsGrid.appendChild(createEventCard(event));
+    });
   }
+}
+
+function createEventCard(event) {
+  const card = document.createElement('div');
+  card.className = 'bg-white rounded-lg shadow-md overflow-hidden event-card';
+  
+  // Format date
+  const eventDate = new Date(event.date);
+  const formattedDate = eventDate.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+  
+  card.innerHTML = `
+    <div class="relative">
+      <img 
+        src="${event.image}" 
+        alt="${event.title}" 
+        class="w-full h-48 object-cover"
+      />
+      ${event.featured ? '<span class="badge badge-featured absolute top-4 right-4">Featured</span>' : ''}
+    </div>
+    <div class="p-5">
+      <div class="flex justify-between items-start mb-2">
+        <h3 class="text-xl font-bold text-gray-900 truncate">${event.title}</h3>
+      </div>
+      <p class="text-gray-600 text-sm mb-4 truncate-2">${event.description}</p>
+      <div class="space-y-2">
+        <div class="flex items-center text-gray-500 text-sm">
+          <i class="fas fa-calendar text-indigo-500 mr-2"></i>
+          <span>${formattedDate}</span>
+        </div>
+        <div class="flex items-center text-gray-500 text-sm">
+          <i class="fas fa-clock text-indigo-500 mr-2"></i>
+          <span>${event.time}</span>
+        </div>
+        <div class="flex items-center text-gray-500 text-sm">
+          <i class="fas fa-map-marker-alt text-indigo-500 mr-2"></i>
+          <span class="truncate">${event.location}</span>
+        </div>
+        <div class="flex items-center text-gray-500 text-sm">
+          <i class="fas fa-dollar-sign text-indigo-500 mr-2"></i>
+          <span>${event.ticketPrice === 0 ? 'Free' : `$${event.ticketPrice}`}</span>
+        </div>
+      </div>
+      <div class="mt-4 flex justify-between items-center">
+        <span class="badge badge-category">${event.category}</span>
+        <a href="event-details.php?id=${event.id}" class="text-indigo-600 hover:text-indigo-800 font-medium text-sm">
+          View Details →
+        </a>
+      </div>
+    </div>
+  `;
+  
+  return card;
 }
