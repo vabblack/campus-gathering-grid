@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Search, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 min-h-[85vh] flex items-center">
+    <div className="relative overflow-hidden bg-gradient-to-r from-rose-500 via-purple-500 to-pink-500 min-h-[85vh] flex items-center">
       {/* Background particles/bubbles animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-80 h-80 rounded-full bg-white/10 animate-float"></div>
@@ -18,22 +17,21 @@ const Hero = () => {
       {/* Content container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left content area */}
+          {/* Left content area - simplified */}
           <div className="text-center lg:text-left">
             <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold text-white leading-tight animate-fade-in">
-              <span className="block mb-2">Discover Amazing</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-pink-200 to-indigo-100">
-                Campus Events
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-pink-100">
+                UniEvents
               </span>
             </h1>
             
-            <p className="mt-6 text-xl text-indigo-100 max-w-xl mx-auto lg:mx-0 animate-fade-in" style={{animationDelay: "0.2s"}}>
-              Find and join exciting events happening around your campus. Connect with your community and make the most of your college experience.
+            <p className="mt-6 text-xl text-white max-w-xl mx-auto lg:mx-0 animate-fade-in" style={{animationDelay: "0.2s"}}>
+              Your campus event marketplace. Connect, discover, celebrate.
             </p>
             
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link to="/events" className="animate-fade-in" style={{animationDelay: "0.4s"}}>
-                <Button className="w-full sm:w-auto px-8 py-6 text-lg bg-white text-indigo-600 hover:bg-indigo-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <Button className="w-full sm:w-auto px-8 py-6 text-lg bg-white text-rose-600 hover:bg-rose-50 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <Calendar className="mr-2 h-5 w-5" />
                   Explore Events
                 </Button>
@@ -61,10 +59,10 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Right side image/illustration area */}
+          {/* Right side image/illustration area - keeping as requested */}
           <div className="hidden lg:block">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-indigo-600 to-transparent opacity-40 rounded-3xl z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-rose-600 to-transparent opacity-40 rounded-3xl z-10"></div>
               <img
                 src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                 alt="Students at a campus event"
@@ -72,7 +70,7 @@ const Hero = () => {
                 style={{animationDelay: "0.7s"}}
               />
               
-              {/* Floating cards */}
+              {/* Floating cards - keeping as requested */}
               <div className="absolute top-10 -left-10 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-xl animate-float-slow w-64 z-20">
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold">
@@ -87,7 +85,7 @@ const Hero = () => {
               
               <div className="absolute bottom-10 -right-10 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-xl animate-float w-64 z-20">
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold">
                     T
                   </div>
                   <div className="ml-3">
