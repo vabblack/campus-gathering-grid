@@ -53,13 +53,13 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100">
+    <div className="min-h-screen bg-black text-gray-100">
       <Navbar />
       <Hero />
       
       <FeaturedEvents events={events} />
       
-      <section className="py-16 bg-gray-800">
+      <section className="py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 scroll-reveal">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
@@ -93,7 +93,7 @@ const Index = () => {
           
           <div className="mt-12 text-center scroll-reveal">
             <Link to="/events">
-              <Button size="lg" className="bg-pink-600 hover:bg-pink-700">
+              <Button size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500">
                 View All Events
               </Button>
             </Link>
@@ -101,9 +101,9 @@ const Index = () => {
         </div>
       </section>
       
-      <section className="py-16 bg-gray-900">
+      <section className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-card p-8 rounded-lg shadow-lg scroll-reveal">
+          <div className="glass-card p-8 rounded-lg shadow-lg scroll-reveal border border-yellow-400/20">
             <h2 className="text-3xl font-bold text-white">
               Ready to create your own campus event?
             </h2>
@@ -112,7 +112,7 @@ const Index = () => {
             </p>
             <div className="mt-8">
               <Link to="/create-event">
-                <Button size="lg" className="bg-pink-600 hover:bg-pink-700 hover:scale-105 transition-all">
+                <Button size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500 hover:scale-105 transition-all">
                   Start Now
                 </Button>
               </Link>
