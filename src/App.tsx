@@ -14,6 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/events" element={<Index />} /> {/* Use Index page for /events too until we create a dedicated page */}
         <Route path="/event/:id" element={<EventPage />} />
         <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/about" element={<About />} />
