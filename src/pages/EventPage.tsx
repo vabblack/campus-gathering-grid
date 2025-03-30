@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Calendar, MapPin, Clock, DollarSign, Users, Share2, Star, ArrowLeft } from 'lucide-react';
@@ -42,9 +43,9 @@ const EventPage = () => {
         <Navbar />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center">
           <div className="animate-pulse flex flex-col items-center">
-            <div className="h-32 w-32 bg-indigo-200 rounded-full mb-4"></div>
-            <div className="h-8 w-64 bg-indigo-200 rounded mb-4"></div>
-            <div className="h-4 w-48 bg-indigo-100 rounded"></div>
+            <div className="h-32 w-32 bg-yellow-200 rounded-full mb-4"></div>
+            <div className="h-8 w-64 bg-yellow-200 rounded mb-4"></div>
+            <div className="h-4 w-48 bg-yellow-100 rounded"></div>
           </div>
         </div>
         <Footer />
@@ -60,7 +61,7 @@ const EventPage = () => {
           <div className="glass-card p-8 text-center animate-fade-in">
             <h2 className="text-2xl font-bold elegant-text-primary mb-4">Event Not Found</h2>
             <p className="elegant-text-secondary mb-6">The event you're looking for doesn't exist or has been removed.</p>
-            <Link to="/" className="glass-button inline-flex items-center px-4 py-2 rounded-md text-white">
+            <Link to="/" className="glass-button inline-flex items-center px-4 py-2 rounded-md text-black">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Events
             </Link>
           </div>
@@ -76,7 +77,7 @@ const EventPage = () => {
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="mb-6 animate-fade-in">
-          <Link to="/" className="text-indigo-600 hover:text-indigo-700 flex items-center transition-all hover:translate-x-[-5px]">
+          <Link to="/" className="text-yellow-400 hover:text-yellow-300 flex items-center transition-all hover:translate-x-[-5px]">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Events
           </Link>
         </div>
@@ -121,7 +122,7 @@ const EventPage = () => {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-center elegant-text-secondary staggered-item">
-                    <Calendar className="h-5 w-5 mr-3 text-indigo-500" />
+                    <Calendar className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Date</p>
                       <p>{formatDate(event.date)}</p>
@@ -129,7 +130,7 @@ const EventPage = () => {
                   </div>
                   
                   <div className="flex items-center elegant-text-secondary staggered-item">
-                    <Clock className="h-5 w-5 mr-3 text-indigo-500" />
+                    <Clock className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Time</p>
                       <p>{event.time}</p>
@@ -137,7 +138,7 @@ const EventPage = () => {
                   </div>
                   
                   <div className="flex items-center elegant-text-secondary staggered-item">
-                    <MapPin className="h-5 w-5 mr-3 text-indigo-500" />
+                    <MapPin className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Location</p>
                       <p>{event.location}</p>
@@ -145,7 +146,7 @@ const EventPage = () => {
                   </div>
                   
                   <div className="flex items-center elegant-text-secondary staggered-item">
-                    <DollarSign className="h-5 w-5 mr-3 text-indigo-500" />
+                    <DollarSign className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Price</p>
                       <p>{formatCurrency(event.ticketPrice)}</p>
@@ -153,7 +154,7 @@ const EventPage = () => {
                   </div>
                   
                   <div className="flex items-center elegant-text-secondary staggered-item">
-                    <Users className="h-5 w-5 mr-3 text-indigo-500" />
+                    <Users className="h-5 w-5 mr-3 text-yellow-400" />
                     <div>
                       <p className="font-medium">Capacity</p>
                       <p>150 attendees</p>
@@ -162,7 +163,7 @@ const EventPage = () => {
                 </div>
                 
                 <div className="pt-6">
-                  <Button className="w-full glass-button text-white hover:scale-105 transition-all">
+                  <Button className="w-full glass-button text-black hover:scale-105 transition-all">
                     Register for Event
                   </Button>
                 </div>
