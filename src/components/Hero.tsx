@@ -14,9 +14,9 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-10 animate-float-delay"></div>
       </div>
       
-      {/* Floating event comments */}
+      {/* Floating event comments - moved to the right side */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] left-[15%] glass-card p-3 rounded-lg w-48 animate-float-slow opacity-90 shadow-lg">
+        <div className="absolute top-[15%] right-[15%] glass-card p-3 rounded-lg w-48 animate-float-slow opacity-90 shadow-lg z-10">
           <p className="text-sm text-white">"The concert last week was amazing! Can't wait for the next one."</p>
           <div className="flex items-center mt-2">
             <div className="h-6 w-6 rounded-full bg-yellow-500"></div>
@@ -24,7 +24,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="absolute top-[40%] right-[12%] glass-card p-3 rounded-lg w-52 animate-float opacity-90 shadow-lg" style={{animationDelay: "2s"}}>
+        <div className="absolute top-[40%] right-[25%] glass-card p-3 rounded-lg w-52 animate-float opacity-90 shadow-lg z-10" style={{animationDelay: "2s"}}>
           <p className="text-sm text-white">"The hackathon helped me connect with my future co-founders!"</p>
           <div className="flex items-center mt-2">
             <div className="h-6 w-6 rounded-full bg-yellow-500"></div>
@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
         </div>
         
-        <div className="absolute bottom-[30%] left-[25%] glass-card p-3 rounded-lg w-44 animate-float-delay opacity-90 shadow-lg" style={{animationDelay: "1s"}}>
+        <div className="absolute bottom-[20%] right-[10%] glass-card p-3 rounded-lg w-44 animate-float-delay opacity-90 shadow-lg z-10" style={{animationDelay: "1s"}}>
           <p className="text-sm text-white">"Found my favorite club at the Activities Fair!"</p>
           <div className="flex items-center mt-2">
             <div className="h-6 w-6 rounded-full bg-yellow-500"></div>
