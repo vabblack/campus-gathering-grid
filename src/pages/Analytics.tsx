@@ -1,9 +1,8 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { AreaChart, BarChart, LineChart, PieChart } from '@/components/ui/chart';
+import { Area, AreaChart, Bar, BarChart, Cell, Line, LineChart, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 const Analytics = () => {
   // Sample data for charts
@@ -41,6 +40,13 @@ const Analytics = () => {
     { name: 'May', value: 45 },
     { name: 'Jun', value: 60 },
   ];
+
+  // Custom colors
+  const yellowColor = "#FFC107";
+  const amberColor = "#FFD54F";
+  const orangeColor = "#FF9800";
+  const redColor = "#F44336";
+  const roseColor = "#E91E63";
   
   return (
     <div className="min-h-screen bg-black text-gray-100">
@@ -58,14 +64,29 @@ const Analytics = () => {
               </CardHeader>
               <CardContent>
                 <div className="h-80">
-                  <AreaChart
-                    data={viewsData}
-                    index="name"
-                    categories={['value']}
-                    colors={['yellow']}
-                    valueFormatter={(value) => `${value} views`}
-                    className="h-full"
-                  />
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart
+                      data={viewsData}
+                      margin={{
+                        top: 10,
+                        right: 30,
+                        left: 0,
+                        bottom: 0,
+                      }}
+                    >
+                      <XAxis dataKey="name" stroke="#6B7280" />
+                      <YAxis stroke="#6B7280" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1F2937', 
+                          borderColor: '#4B5563',
+                          color: '#E5E7EB' 
+                        }}
+                        formatter={(value) => [`${value} views`, 'Views']}
+                      />
+                      <Area type="monotone" dataKey="value" stroke={yellowColor} fill={yellowColor} fillOpacity={0.2} />
+                    </AreaChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
@@ -77,14 +98,30 @@ const Analytics = () => {
               </CardHeader>
               <CardContent>
                 <div className="h-80">
-                  <BarChart
-                    data={attendeeData}
-                    index="name"
-                    categories={['value']}
-                    colors={['yellow']}
-                    valueFormatter={(value) => `${value} attendees`}
-                    className="h-full"
-                  />
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart
+                      data={attendeeData}
+                      layout="vertical"
+                      margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                      }}
+                    >
+                      <XAxis type="number" stroke="#6B7280" />
+                      <YAxis dataKey="name" type="category" width={100} stroke="#6B7280" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1F2937', 
+                          borderColor: '#4B5563',
+                          color: '#E5E7EB' 
+                        }} 
+                        formatter={(value) => [`${value} attendees`, 'Attendees']}
+                      />
+                      <Bar dataKey="value" fill={yellowColor} />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
@@ -96,14 +133,38 @@ const Analytics = () => {
               </CardHeader>
               <CardContent>
                 <div className="h-80">
-                  <PieChart
-                    data={categoryData}
-                    index="name"
-                    categories={['value']}
-                    colors={['yellow', 'amber', 'orange', 'red', 'rose']}
-                    valueFormatter={(value) => `${value}%`}
-                    className="h-full"
-                  />
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={categoryData}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        outerRadius={80}
+                        fill="#8884d8"
+                        dataKey="value"
+                        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                      >
+                        {categoryData.map((entry, index) => {
+                          const colors = [yellowColor, amberColor, orangeColor, redColor, roseColor];
+                          return (
+                            <Cell 
+                              key={`cell-${index}`} 
+                              fill={colors[index % colors.length]} 
+                            />
+                          );
+                        })}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1F2937', 
+                          borderColor: '#4B5563',
+                          color: '#E5E7EB' 
+                        }}
+                        formatter={(value) => [`${value}%`, 'Percentage']}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
@@ -115,14 +176,29 @@ const Analytics = () => {
               </CardHeader>
               <CardContent>
                 <div className="h-80">
-                  <LineChart
-                    data={growthData}
-                    index="name"
-                    categories={['value']}
-                    colors={['yellow']}
-                    valueFormatter={(value) => `${value} followers`}
-                    className="h-full"
-                  />
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                      data={growthData}
+                      margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                      }}
+                    >
+                      <XAxis dataKey="name" stroke="#6B7280" />
+                      <YAxis stroke="#6B7280" />
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: '#1F2937', 
+                          borderColor: '#4B5563',
+                          color: '#E5E7EB' 
+                        }}
+                        formatter={(value) => [`${value} followers`, 'Followers']}
+                      />
+                      <Line type="monotone" dataKey="value" stroke={yellowColor} />
+                    </LineChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
