@@ -1,3 +1,4 @@
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
@@ -16,14 +17,14 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'index.html'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: mode === 'development',
-    rollupOptions: { // NEW: Critical for proper asset handling
+    rollupOptions: { // Critical for proper asset handling
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]',
         chunkFileNames: 'assets/[name]-[hash].js',
@@ -33,6 +34,6 @@ export default defineConfig(({ mode }) => ({
   },
   preview: {
     port: 8080,
-    host: true // NEW: Allows external access
+    host: true // Allows external access
   }
 }))
