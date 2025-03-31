@@ -72,8 +72,10 @@ const Navbar = () => {
               <Button variant="ghost" size="icon" className="p-1 text-gray-300 hover:bg-gray-700 transition-all">
                 <User className="h-6 w-6" />
               </Button>
-              <Button className="ml-4 bg-yellow-400 text-black hover:bg-yellow-500">
-                Sign In
+              <Button className="ml-4 bg-yellow-400 text-black hover:bg-yellow-500" asChild>
+                <Link to="/signin">
+                  Sign In
+                </Link>
               </Button>
             </div>
           </div>
@@ -128,8 +130,10 @@ const Navbar = () => {
               </div>
             </div>
             <div className="mt-3 px-2 space-y-1">
-              <Button className="w-full justify-center bg-yellow-400 text-black hover:bg-yellow-500">
-                Sign In
+              <Button className="w-full justify-center bg-yellow-400 text-black hover:bg-yellow-500" asChild>
+                <Link to="/signin" onClick={() => setIsMenuOpen(false)}>
+                  Sign In
+                </Link>
               </Button>
             </div>
           </div>
